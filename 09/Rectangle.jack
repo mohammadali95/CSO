@@ -1,0 +1,60 @@
+class Rectangle{
+field int size, x , y;
+field boolean bounds;
+
+
+constructor Rectangle new(int s, int x_pos, int y_pos){
+  let size = s;
+  let x = x_pos;
+  let y = y_pos;
+  return this;
+}
+
+method void draw(){
+do Screen.setColor(true);
+do Screen.drawRectangle(x, y, x + size, y + size);
+return;
+}
+
+method boolean check(int dx, int dy){
+  let bounds = true;
+  if ((x + size + dx) > 512 ){
+  let bounds = false;
+}
+  if (x + dx < 0){
+  let bounds = false;
+  }
+
+  if (y + size + dy > 256){
+  let bounds = false;
+  }
+  if (y + dy < 0){
+  let bounds = false;
+  }
+  return bounds;
+}
+method void move(int dx, int dy){
+  if (check(dx,dy) = true){
+  do Screen.setColor(false);
+  do Screen.drawRectangle(x, y, x + size, y + size);
+  let x = x + dx;
+  let y = y + dy;
+  //do Output.printInt(x);
+  //do Output.printInt(y);
+  do Screen.setColor(true);
+  do Screen.drawRectangle(x, y, x + size, y + size);
+  }
+  return;
+
+}
+
+method int centerx(){
+return (size+x + x) /2;
+}
+
+method int centery(){
+return (size+y+y) /2;
+}
+
+
+}

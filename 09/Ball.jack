@@ -1,0 +1,79 @@
+class Ball{
+  field int x, y, radius, direction, i, length;
+  field Array xs, ys;
+
+
+constructor Ball new(int x_pos, int y_pos, int r){
+  let radius = r;
+  let x = x_pos;
+  let y = y_pos;
+  let direction = 1;
+  let i = 0;
+  let xs = Array.new(5);
+  let ys = Array.new(5);
+  let xs[0] = 100;
+  let xs[1] = 200;
+  let xs[2] = 300;
+  let xs[3] = 400;
+  let xs[4] = 250;
+  let ys[0]  = 50;
+  let ys[1] = 100;
+  let ys[2] = 150;
+  let ys[3] = 200;
+  let ys[4] = 220;
+
+
+
+
+  return this;
+
+  }
+
+  method void draw(){
+  do Screen.setColor(true);
+  do Screen.drawCircle(x, y, radius);
+  return;
+  }
+
+method void move(int dx, int dy, int r) {
+	do Screen.setColor(false);
+	do Screen.drawCircle(x, y, r);
+  let x = x + dx;
+  let y = y + dy;
+  do Screen.setColor(true);
+	do Screen.drawCircle(x, y, r);
+
+  return;
+  }
+
+
+  method boolean check_contact(Rectangle rectam){
+  if ((rectam.centerx() > (x - radius)) & (rectam.centerx() < (x + radius))){
+  //do Output.printInt(5);
+  if ((rectam.centery() > (y - radius)) & (rectam.centery() < (y + radius))){
+  //do Output.printInt(5);
+  return true;
+  }
+  }
+  return false;
+  }
+
+  method void erase(){
+  do Screen.setColor(false);
+  do Screen.drawCircle(x,y, radius);
+  do Screen.setColor(true);
+  let x = xs[i];
+  let y = ys[i];
+  if (i = 4){
+  let i = 0;
+  }
+  else{
+  let i = i + 1;
+  }
+  do Screen.setColor(true);
+  do Screen.drawCircle(xs[i], ys[i], radius);
+
+  return;
+  }
+
+}

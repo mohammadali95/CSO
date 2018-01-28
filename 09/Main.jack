@@ -1,0 +1,46 @@
+class Main {
+
+	function void main() {
+		var Rectangle s;
+    var Ball b;
+    var int key;
+
+		let s = Rectangle.new(10, 256, 128);
+    do s.draw();
+    let b = Ball.new(50, 30, 25);
+		do b.draw();
+    while (~(key = 81)){
+		if (b.check_contact(s)){
+		do b.erase();
+		do Sys.wait(100);
+		}
+
+
+      let key = Keyboard.keyPressed();
+      if (key = 87){
+				do s.move(0,-17);
+				do Sys.wait(100);
+
+				}
+
+			if (key = 83){
+			do s.move(0,17);
+			do Sys.wait(100);
+
+			}
+      if (key = 65){
+        do s.move(-17, 0);
+				do Sys.wait(100);
+
+      }
+      if (key = 68){
+        do s.move(17,0);
+				do Sys.wait(100);
+
+        }
+
+      }
+    return;
+    }
+
+		}
